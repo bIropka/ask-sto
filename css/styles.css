@@ -1,11 +1,237 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,700,400italic,700italic);
 
+@font-face {font-family: "MyriadPro Bold";src: url("../fonts/MYRIADPRO-BOLD.OTF");}
+@font-face {font-family: "MyriadPro Regular";src: url("../fonts/MYRIADPRO-REGULAR.OTF");}
+@font-face {font-family: "MyriadPro Semibold";src: url("../fonts/MYRIADPRO-SEMIBOLD.OTF");}
+@font-face {font-family: "MyriadPro Condensed";src: url("../fonts/MYRIADPRO-COND.OTF");}
+@font-face {font-family: "MyriadPro Bold Condensed";src: url("../fonts/MYRIADPRO-BOLDCOND.OTF");}
+@font-face {font-family: "MyriadPro Semibold Italic";src: url("../fonts/MYRIADPRO-SEMIBOLDIT.OTF");}
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: "Open Sans", serif;
+    font-family: "MyriadPro Regular", sans-serif;
+}
+.content {
+    width: 980px;
+    margin: 0 auto;
+}
+body {
+    width: 100%;
+}
+header, .title {
+    width: 100%;
+    background: linear-gradient(to bottom, #096bc3, #074e8d);
+    box-shadow: 0 1px 5px black;
+    height: 120px;
+    color: white;
+}
+.header-content {
+    height: 100%;
+}
+.company-name, .menu, .contacts {
+    display: inline-block;
+    height: 120px;
+    text-align: center;
+}
+.company-name {
+    float: left;
+    width: 230px;
+    line-height: 120px;
+    font-family: "MyriadPro Bold", sans-serif;
+    font-size: 40px;
+}
+.menu {
+    width: 500px;
+    text-align: justify;
+    text-align-last: justify;
+}
+.menu li {
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    font-family: "MyriadPro Regular", sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+.unchosen:hover div {
+    transform: scale(1.1);
+}
+.menu li:nth-child(1){width: 180px;float: left}
+.menu li:nth-child(2){width: 165px;}
+.menu li:nth-child(3){width: 155px;float: right}
+.menu li:last-child {
+    width: 100%;
+    height: 0;
+}
+.menu-icon-1, .menu-icon-2, .menu-icon-3 {
+    width: 54px;
+    height: 54px;
+    margin: 5px auto;
+    background: url("../images/sprite-1.png");
+    background-size: cover;
+}
+.menu-icon-2 {
+    background-position: 5% 0;
+}
+.menu-icon-3 {
+    background-position: 10% 0;
+    margin: 15px auto 20px;
+}
+.contacts {
+    float: right;
+    width: 250px;
+    vertical-align: middle;
+}
+.contacts .address {
+    font-size: 16px;
+    margin: 5px 0;
+}
+.contacts .phone-number {
+    font-family: "MyriadPro Bold", sans-serif;
+    font-size: 26px;
+    margin: 5px 0;
+}
+.contacts button {
+    width: 220px;
+    height: 40px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(to bottom, #fff100, #f7941d);
+    font-family: "MyriadPro Semibold", sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+.contacts button:hover {
+    background: linear-gradient(to top, #fff100, #f7941d);
+}
+.contacts button:active {
+    border: 2px solid #074e8d;
+}
+.title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    line-height: 120px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.top-block {
+    height: 650px;
+    margin: 6px auto;
+    padding: 5px 0;
+    position: relative;
+}
+.top-block .background {
+    width: 980px;
+    height: 540px;
+    background: url("../images/background-1.png");
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    z-index: -1;
+}
+.top-block .text-1 {
+    font-family: "MyriadPro Condensed", sans-serif;
+    font-size: 60px;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+.top-block .text-2, .top-block .text-3 {
+    font-size: 50px;
+    font-family: "MyriadPro Semibold Italic", sans-serif;
+    color: #085da9;
+    margin-top: 7px;
+}
+.top-block .text-3 {
+    margin-left: 180px;
+}
+.top-block .text-price {
+    margin: 250px 50px 0 0;
+    font-family: "MyriadPro Semibold Italic", sans-serif;
+    color: #ff0004;
+    font-size: 48px;
+}
+.top-block .text-5 {
+    font-family: "MyriadPro Semibold Italic", sans-serif;
+    font-size: 36px;
+    margin-left: 100px;
+}
+.our-services {
+    height: 1220px;
+    position: relative;
+}
+.our-services .background {
+    background: url("../images/background-4.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 430px;
+    position: absolute;
+    top: 0;
+}
+.our-services-text {
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    height: 215px;
+    position: absolute;
+    top: 0;
+}
+.our-services-text span {
+    display: block;
+    width: 980px;
+    margin: 0 auto;
+    font-family: "MyriadPro Bold Condensed", sans-serif;
+    font-size: 32px;
+    padding-top: 50px;
+    text-align: center;
+}
+.our-services .content {
+    display: table;
+    border-collapse: collapse;
+    position: absolute;
+    top: 23%;
+    left: 0;
+    right: 0;
+    height: 920px;
+}
+.content-row {
+    display: table-row;
+}
+.service {
+    display: table-cell;
+    width: 230px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid transparent;
+}
+.service-image {
+    width: 229px;
+    height: 230px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.row-1 .service:nth-child(1) .service-image {background: url("../images/sprite-2.jpg") -1px 0; background-size: cover}
+.row-1 .service:nth-child(2) .service-image {background: url("../images/sprite-2.jpg") 12.76% 0; background-size: cover}
+.row-1 .service:nth-child(3) .service-image {background: url("../images/sprite-2.jpg") 25.52% 0; background-size: cover}
+.row-1 .service:nth-child(4) .service-image {background: url("../images/sprite-2.jpg") 38.28% 0; background-size: cover}
+.row-2 .service:nth-child(1) .service-image {background: url("../images/sprite-2.jpg") 51.04% 0; background-size: cover}
+.row-2 .service:nth-child(2) .service-image {background: url("../images/sprite-2.jpg") 63.78% 0; background-size: cover}
+.row-2 .service:nth-child(3) .service-image {background: url("../images/sprite-2.jpg") 76.56% 0; background-size: cover}
+.row-2 .service:nth-child(4) .service-image {background: url("../images/sprite-2.jpg") 89.28% 0; background-size: cover}
+.service-title {
+    font-family: "MyriadPro Bold Condensed", sans-serif;
+    color: #085aa3;
+    font-size: 30px;
 }
