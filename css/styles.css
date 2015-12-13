@@ -45,14 +45,11 @@ header, .title {
 }
 .menu {
     width: 500px;
-    text-align: justify;
-    text-align-last: justify;
 }
 .menu li {
     display: inline-block;
     height: 100%;
     text-align: center;
-    font-family: "MyriadPro Regular", sans-serif;
     font-size: 20px;
     cursor: pointer;
     font-weight: bold;
@@ -61,6 +58,7 @@ header, .title {
     color: white;
     text-decoration: none;
 }
+
 .unchosen:hover div {
     transform: scale(1.1);
 }
@@ -82,7 +80,7 @@ header, .title {
     background-position: 5% 0;
 }
 .menu-icon-3 {
-    background-position: 10% 0;
+    background-position: 10.1% 0;
     margin: 15px auto 20px;
 }
 .contacts {
@@ -214,6 +212,7 @@ header, .title {
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-bottom: 40px solid transparent;
+    text-align: center;
 }
 .service-image {
     width: 229px;
@@ -234,4 +233,131 @@ header, .title {
     font-family: "MyriadPro Bold Condensed", sans-serif;
     color: #085aa3;
     font-size: 30px;
+    line-height: 25px;
+    margin: 10px 0 0;
+}
+.row-2 .service-title{
+    height: 60px;
+}
+.service ul {
+    width: 95%;
+    text-align: left;
+    margin-left: 5%;
+    list-style: none;
+}
+.service ul li {
+    margin-top: 10px;
+}
+.service .mark {
+    display: inline-block;
+    color: #075294;
+    width: 5%;
+    vertical-align: top;
+    margin-top: -6px;
+    margin-right: 4%;
+    font-size: 18px;
+}
+.service-description {
+    display: inline-block;
+    color: #5b574f;
+    width: 90%;
+}
+.consultation {
+    height: 505px;
+    background: url("../images/background-5.jpg");
+    background-size: cover;
+    padding-top: 55px;
+    text-align: center;
+}
+.consultation .left-column {
+    width: 350px;
+    float: left;
+    text-align: left;
+}
+.consultation .column-title {
+    font-family: "MyriadPro Bold Condensed", sans-serif;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.consultation .column-content {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 25px 15px 0;
+}
+.consultation .text-1 {
+    display: inline-block;
+    font-family: "MyriadPro Bold Condensed", sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+.consultation .right-column {
+    width: 500px;
+    float: right;
+}
+.right-column .text-1 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.right-column .column-content {
+    text-align: left;
+}
+.consultation input[type="text"] {
+    font-family: "MyriadPro Condensed", sans-serif;
+    font-size: 24px;
+    padding: 10px;
+    width: 345px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    border: 3px solid #eeeeee;
+}
+.consultation input[type="text"]:focus::-webkit-input-placeholder {color: transparent}
+.consultation input[type="text"]:focus::-moz-placeholder {color: transparent}
+.consultation input[type="text"]:focus:-moz-placeholder {color: transparent}
+.consultation input[type="text"]:focus:-ms-input-placeholder {color: transparent}
+.consultation input[type=submit] {
+    width: 345px;
+    border: none;
+    background: linear-gradient(to bottom, #fff100, #f7941d);
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.consultation input[type=submit]:hover {
+    background: linear-gradient(to top, #fff100, #f7941d);
+}
+.consultation input[type=submit]:active {
+    outline: 2px solid #eeeeee;
+}
+.on-map {
+    width: 100%;
+    padding-top: 30%;
+    background: url("../images/on-map.jpg");
+    background-size: cover;
+}
+footer {
+    height: 65px;
+    padding: 20px 0;
+}
+footer .content {
+    width: 1280px;
+}
+footer .text-1, footer .text-2 {
+    font-size: 18px;
+    float: left;
+}
+footer .text-2 {
+    float: right;
+}
+footer a {
+    color: #096fca;
+    font-size: 18px;
 }
