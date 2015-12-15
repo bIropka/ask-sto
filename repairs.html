@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repairs</title>
     <link rel="stylesheet" href="css/styles.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.callback').click(function () {
+                $('.window-callback').fadeIn();
+            });
+            $('.window-callback').click(function (event) {
+                $target = $(event.target);
+                if (!$target.closest($('.form-callback')).length) $('.window-callback').fadeOut();
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -35,7 +47,7 @@
         <div class="contacts">
             <div class="address">г. Тольятти ул. Льва Толстого, 3</div>
             <div class="phone-number">+7 (8482) 25-33-99</div>
-            <button>заказать звонок</button>
+            <button class="callback">заказать звонок</button>
         </div>
     </div>
 </header>
@@ -106,7 +118,7 @@
                 <div class="product-image"></div>
                 <div class="text-2">установка сигнализации, доп. оборудования</div>
                 <div class="text-3">цена:</div>
-                <div class="text-4">от 800 <span class="ruble"></span>/н.час.</div>
+                <div class="text-4">от 800 <span class="ruble"></span><span style="font-size: 18px">/н.час.</span></div>
                 <button>заказать ремонт</button>
             </li>
             <li>
@@ -114,13 +126,14 @@
                 <div class="product-image"></div>
                 <div class="text-2">отечественных авто и иномарок</div>
                 <div class="text-3">цена:</div>
-                <div class="text-4">от 1000</div>
+                <div class="text-4">от 1000 <span class="ruble"></span></div>
                 <button>заказать ремонт</button>
             </li>
         </ul>
     </div>
 
     <div class="repair-services">
+        <div class="small-title">НАШИ УСЛУГИ</div>
         <ul class="content">
             <li>Ремонт КПП, замена сцепления,</li>
             <li>ремонт ДВС и системы зажигания,</li>
@@ -142,29 +155,29 @@
                 <div class="text-2">сроки:</div>
                 <div class="text-3">от 1 дня</div>
                 <div class="text-2">цена:</div>
-                <div class="text-3">1500 <span class="ruble"></span></div>
+                <div class="text-3" style="color: #ff0004;">1500 <span class="ruble"></span></div>
                 <div class="text-4">Гарантия - 3 месяца</div>
                 <div class="text-5">заказ и доставка запчастей</div>
                 <button>заказать ремонт</button>
             </li>
             <li>
-                <div class="text-1">замена сцепления</div>
+                <div class="text-1">компьютерная диагностика</div>
                 <div class="product-image"></div>
                 <div class="text-2">сроки:</div>
                 <div class="text-3">30 мин.</div>
                 <div class="text-2">цена:</div>
-                <div class="text-3">400 <span class="ruble"></span></div>
+                <div class="text-3" style="color: #ff0004;">400 <span class="ruble"></span></div>
                 <div class="text-4">бесплатно</div>
                 <div class="text-5">при ремонте авто</div>
                 <button>заказать ремонт</button>
             </li>
             <li>
-                <div class="text-1">замена сцепления</div>
+                <div class="text-1">капитальный ремонт ДВС</div>
                 <div class="product-image"></div>
                 <div class="text-2">сроки:</div>
                 <div class="text-3">от 7 дней</div>
                 <div class="text-2">цена:</div>
-                <div class="text-3">от 15 000 <span class="ruble"></span></div>
+                <div class="text-3" style="color: #ff0004;">от 15 000 <span class="ruble"></span></div>
                 <div class="text-4">Диагностика в подарок</div>
                 <button>заказать ремонт</button>
             </li>
@@ -174,7 +187,10 @@
     <div class="title">ТОЛЬКО У НАС!</div>
     <div class="only-we">
         <div class="content">
-            <div class="text-1">Профессиональная мойка <span>вашего авто перед ремонтом</span> в <span>ПОДАРОК!</span></div>
+            <div class="text-1">Профессиональная мойка
+                <span style="color: black;font-family:'MyriadPro Bold Condensed', sans-serif;">вашего авто перед ремонтом</span>
+                <span style="font-family:'MyriadPro Bold Condensed', sans-serif;"> в </span>
+                <span style="font-family:'MyriadPro Bold Condensed', sans-serif;font-size:67px; line-height: 70px;">ПОДАРОК!</span></div>
             <button>записаться на ремонт</button>
             <div class="text-2">Во время мойки и ремонта к Вашим услугам комфортабельная клиентская зона,
                 а также в шаговой доступности находится ТЦ ПАРКХАУС, где можно скоротать время
@@ -212,7 +228,7 @@
     <div class="title">основные проблемы</div>
     <div class="general-problems">
         <div class="content">
-            <div class="text-1"></div>
+            <div class="text-1">с которыми Вы вынуждены сталкиваться, отдавая машину в ремонт</div>
             <ul>
                 <li><div class="mark">1</div>завышенная цена от официального сервиса</li>
                 <li><div class="mark">2</div>непрозрачность работ</li>
@@ -228,14 +244,15 @@
     <div class="title">у нас</div>
     <div class="only-we-2">
         <div class="content">
+            <div class="background"></div>
             <div class="div text-1">Запчасти в наличии и под заказ со складов в Самаре, Тольятти, Москве</div>
             <ul>
-                <li><div class="mark">1</div>цены на работы ниже дилерских за счёт отсутствия брендового сбора</li>
-                <li><div class="mark">2</div>сроки работ от 30 минут, согласовываются заранее</li>
-                <li><div class="mark">3</div>у нас работают сертифицированные специалисты</li>
-                <li><div class="mark">4</div>большинство запчастей в наличии</li>
-                <li><div class="mark">5</div>автомобили - наша страсть, к каждой машине мы относимся как к своей</li>
-                <li><div class="mark">6</div>индивидуальный подход</li>
+                <li><div class="mark">1</div><div class="text-2">цены на работы ниже дилерских за счёт<br> отсутствия брендового сбора</div></li>
+                <li><div class="mark">2</div><div class="text-2">сроки работ от 30 минут, согласовываются заранее</div></li>
+                <li><div class="mark">3</div><div class="text-2">у нас работают сертифицированные специалисты</div></li>
+                <li><div class="mark">4</div><div class="text-2">большинство запчастей в наличии</div></li>
+                <li><div class="mark">5</div><div class="text-2">автомобили - наша страсть, к каждой машине мы относимся как к своей</div></li>
+                <li><div class="mark">6</div><div class="text-2">индивидуальный подход</div></li>
             </ul>
         </div>
     </div>
@@ -250,7 +267,7 @@
                     <div class="text-2">Оставьте заявку по телефону:
                         +7 (8482) 25-33-99
                         или закажите
-                        обратный звонок</div>
+                        <span class="callback" style='font-family: "MyriadPro Condensed", sans-serif;text-decoration: underline; cursor: pointer;font-weight: bold'>обратный звонок</span></div>
                 </li>
                 <li class="right-arrow"></li>
                 <li>
@@ -272,15 +289,6 @@
                 </li>
                 <li>
                     <div class="mark"></div>
-                    <div class="text-1">РЕМОНТ</div>
-                    <div class="text-2">Приезжаете в удобное для Вас
-                        время и уезжаете на своём
-                        ОБНОВЛЁННОМ
-                        авто!</div>
-                </li>
-                <li class="left-arrow"></li>
-                <li>
-                    <div class="mark"></div>
                     <div class="text-1">автомобиль<br>готов!</div>
                     <div class="text-2">В указанные сроки Ваш
                         автомобиль проходит все
@@ -288,15 +296,59 @@
                         процедуры с гарантией
                         качества.</div>
                 </li>
+                <li class="left-arrow"></li>
+                <li>
+                    <div class="mark"></div>
+                    <div class="text-1">РЕМОНТ</div>
+                    <div class="text-2">Приезжаете в удобное для Вас
+                        время и уезжаете на своём
+                        ОБНОВЛЁННОМ
+                        авто!</div>
+                </li>
             </ul>
             <div class="strange-arrow"></div>
         </div>
     </div>
 
-    <div class="title">онсультация со специалистом</div>
+    <div class="title">консультация со специалистом</div>
+    <div class="consultation consultation-repairs">
+        <div class="content">
+            <div class="left-column">
+                <div class="column-title">Наши контакты</div>
+                <div class="column-content">
+                    <div class="text-1">Адрес:<br>г. Тольятти ул. Л.Толстого, з</div>
+                    <div class="text-1">Телефон: 8(8482) 25-33-99</div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="column-title">у вас есть вопросы по ремонту?</div>
+                <form action="#" class="column-content" onsubmit="return false">
+                    <div class="text-1">
+                        Оставьте заявку на <span style="color: #ff0004;font-family:'MyriadPro Bold Condensed', sans-serif;">бесплатную консультацию<br> со специалистом</span> прямо сейчас!
+                    </div>
+                    <label><input type="text" placeholder="Ваше имя:"/></label>
+                    <label><input type="text" placeholder="Ваш телефон:"/></label>
+                    <label><input type="submit" value="оставить заявку"/></label>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div class="title">как нас найти</div>
-    <div class="on-map"></div>
+    <div class="on-map">
+        <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=tTY3r0-Hg1SkIwzpwzVbiXIagoMhtat4&width=100%&height=475&lang=ru_RU&sourceType=constructor"></script>
+    </div>
+
+    <div class="window-callback">
+        <form class="form-callback" action="#">
+            <div class="text-1">заказать обратный звонок</div>
+            <div class="text-2">введите свои контактные данные и наш менеджер свяжется сегодня с вами</div>
+            <input type="text" placeholder="Ваше имя:"/>
+            <input type="text" placeholder="Ваш телефон:"/>
+            <input type="submit" value="заказать"/>
+        </form>
+    </div>
+
 </main>
 
 <footer>

@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spares</title>
     <link rel="stylesheet" href="css/styles.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.review-controls li').click(function() {
+                $('.review-controls li').removeClass('active');
+                $(this).addClass('active');
+                if($(this).hasClass('control-1')){
+                   $('.review').css('display','none');
+                    $('.review-1').css('display','block');
+                }
+                if($(this).hasClass('control-2')){
+                    $('.review').css('display','none');
+                    $('.review-2').css('display','block');
+                }
+                if($(this).hasClass('control-3')){
+                    $('.review').css('display','none');
+                    $('.review-3').css('display','block');
+                }
+                if($(this).hasClass('control-4')){
+                    $('.review').css('display','none');
+                    $('.review-4').css('display','block');
+                }
+                if($(this).hasClass('control-5')){
+                    $('.review').css('display','none');
+                    $('.review-5').css('display','block');
+                }
+            });
+            /********************/
+            $('.callback').click(function () {
+                $('.window-callback').fadeIn();
+            });
+            $('.window-callback').click(function (event) {
+                $target = $(event.target);
+                if (!$target.closest($('.form-callback')).length) $('.window-callback').fadeOut();
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -35,7 +72,7 @@
         <div class="contacts">
             <div class="address">г. Тольятти ул. Льва Толстого, 3</div>
             <div class="phone-number">+7 (8482) 25-33-99</div>
-            <button>заказать звонок</button>
+            <button class="callback">заказать звонок</button>
         </div>
     </div>
 </header>
@@ -45,7 +82,7 @@
     <div class="spares-top-block">
         <div class="content">
             <h1>Продажа автозапчастей для иномарок</h1>
-            <h2>в ассортименте со склада в Тольятти доставка в короткие сроки со складов г. Тольятти, г. Самара, г. Москва гарантия на все комплектующие</h2>
+            <h2>в ассортименте со склада в Тольятти либо доставка в короткие сроки со складов Тольятти, Самара, Москва. Гарантия на все комплектующие</h2>
             <div class="background"></div>
             <div class="form-wrap">
                 <div class="text-1">
@@ -70,11 +107,11 @@
             <div class="slider">
                 <div class="left-control">&#8249;</div>
                 <ul>
-                    <li class="element"><div class="logo"></div></li>
-                    <li class="element"><div class="logo"></div></li>
-                    <li class="element"><div class="logo"></div></li>
-                    <li class="element"><div class="logo"></div></li>
-                    <li class="element"><div class="logo"></div></li>
+                    <li class="element visible"><div class="logo"></div></li>
+                    <li class="element visible"><div class="logo"></div></li>
+                    <li class="element visible"><div class="logo"></div></li>
+                    <li class="element visible"><div class="logo"></div></li>
+                    <li class="element visible"><div class="logo"></div></li>
                 </ul>
                 <div class="right-control">&#8250;</div>
             </div>
@@ -156,7 +193,7 @@
     <div class="reviews">
         <div class="content">
             <div class="left-column">
-                <div class="review review-1">
+                <div class="review review-1" style="display: none">
                     <div class="name">Виктор Семёнов</div>
                     <div class="line"></div>
                     <div class="review-text"><span class="quote-1"></span><span class="quote-2"></span>
@@ -166,7 +203,7 @@
                         Nulla consequat massa quis enim.</div>
                     <div class="photo"></div>
                 </div>
-                <div class="review review-2" style="display: none">
+                <div class="review review-2">
                     <div class="name">Семен Викторов</div>
                     <div class="line"></div>
                     <div class="review-text"><span class="quote-1"></span><span class="quote-2"></span>
@@ -204,11 +241,11 @@
                     <div class="photo"></div>
                 </div>
                 <ul class="review-controls">
-                    <li></li>
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li class="control-1"></li>
+                    <li class="control-2 active"></li>
+                    <li class="control-3"></li>
+                    <li class="control-4"></li>
+                    <li class="control-5"></li>
                 </ul>
             </div>
             <div class="right-column">
@@ -309,7 +346,20 @@
     </div>
 
     <div class="title">как нас найти</div>
-    <div class="on-map"></div>
+    <div class="on-map">
+        <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=tTY3r0-Hg1SkIwzpwzVbiXIagoMhtat4&width=100%&height=475&lang=ru_RU&sourceType=constructor"></script>
+    </div>
+
+    <div class="window-callback">
+        <form class="form-callback" action="#">
+            <div class="text-1">заказать обратный звонок</div>
+            <div class="text-2">введите свои контактные данные и наш менеджер свяжется сегодня с вами</div>
+            <input type="text" placeholder="Ваше имя:"/>
+            <input type="text" placeholder="Ваш телефон:"/>
+            <input type="submit" value="заказать"/>
+        </form>
+    </div>
+
 </main>
 
 <footer>
