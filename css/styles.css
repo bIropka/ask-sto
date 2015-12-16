@@ -466,10 +466,10 @@ footer a {
     padding: 55px 0;
 }
 .slider {
-    width: 100%;
-    height: 150px;
-    position: relative;
-}
+     width: 100%;
+     height: 150px;
+     position: relative;
+ }
 .slider .left-control, .slider .right-control {
     display: inline-block;
     font-size: 250px;
