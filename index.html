@@ -13,7 +13,35 @@
             });
             $('.window-callback').click(function (event) {
                 $target = $(event.target);
-                if (!$target.closest($('.form-callback')).length) $('.window-callback').fadeOut();
+                if (!$target.closest($('.window')).length) $('.window-callback').fadeOut();
+            });
+            /*****************/
+            $('.form-callback .submit').click(function () {
+                $('.window-callback').fadeOut();
+                $('.window-callback-ok').fadeIn();
+            });
+            $('.window-callback-ok').click(function (event) {
+                $target = $(event.target);
+                if (!$target.closest($('.window')).length) $('.window-callback-ok').fadeOut();
+                if ($target.hasClass('exit')) $('.window-callback-ok').fadeOut();
+            });
+            /*****************/
+            $('.free-consult-bid').click(function () {
+                $('.window-free-consult-ok').fadeIn();
+            });
+            $('.window-free-consult-ok').click(function (event) {
+                $target = $(event.target);
+                if (!$target.closest($('.window')).length) $('.window-free-consult-ok').fadeOut();
+                if ($target.hasClass('exit')) $('.window-free-consult-ok').fadeOut();
+            });
+            /*****************/
+            $('.bid').click(function () {
+                $('.window-bid-ok').fadeIn();
+            });
+            $('.window-bid-ok').click(function (event) {
+                $target = $(event.target);
+                if (!$target.closest($('.window')).length) $('.window-bid-ok').fadeOut();
+                if ($target.hasClass('exit')) $('.window-bid-ok').fadeOut();
             });
         });
     </script>
@@ -219,7 +247,7 @@
                     </div>
                     <label><input type="text" placeholder="Ваше имя:"/></label>
                     <label><input type="text" placeholder="Ваш телефон:"/></label>
-                    <label><input type="submit" value="оставить заявку"/></label>
+                    <label><input class="free-consult-bid" type="submit" value="оставить заявку"/></label>
                 </form>
             </div>
         </div>
@@ -231,13 +259,33 @@
     </div>
 
     <div class="window-callback">
-        <form class="form-callback" action="#">
+        <form class="window form-callback" action="#">
             <div class="text-1">заказать обратный звонок</div>
             <div class="text-2">введите свои контактные данные и наш менеджер свяжется сегодня с вами</div>
             <input type="text" placeholder="Ваше имя:"/>
             <input type="text" placeholder="Ваш телефон:"/>
-            <input type="submit" value="заказать"/>
+            <input class="submit" type="submit" value="заказать"/>
         </form>
+    </div>
+
+    <div class="window-callback-ok">
+        <div class="window callback-ok">
+            <div class="text-1">ваш обратный звонок заказан!</div>
+            <button class="exit">готово!</button>
+        </div>
+    </div>
+
+    <div class="window-free-consult-ok">
+        <div class="window free-consult-ok">
+            <div class="text-1">заявка на<br> бесплатную консультацию<br> со специалистом<br> отправлена!</div>
+            <button class="exit">готово!</button>
+        </div>
+    </div>
+    <div class="window-bid-ok">
+        <div class="window bid-ok">
+            <div class="text-1">заявка принята!</div>
+            <button class="exit">готово!</button>
+        </div>
     </div>
 
 </main>

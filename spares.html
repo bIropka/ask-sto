@@ -32,13 +32,83 @@
                     $('.review-5').css('display','block');
                 }
             });
-            /********************/
+            /***** slider ****/
+            var logos = $('.element');
+            $('.left-control').click(function () {
+                    for (var i = 0; i < logos.length; i++) {
+                        if ($(logos[i]).hasClass('first')) {
+                            $(logos[i]).removeClass('first');
+                            $(logos[i]).addClass('visible');
+                            $(logos[i - 1]).addClass('first');
+                            $(logos[i + 4]).removeClass('last');
+                            $(logos[i + 3]).removeClass('visible');
+                            $(logos[i + 3]).addClass('last');
+                            if($(logos[0]).hasClass('first')){
+                                $('.left-control').css('display', 'none');
+                            }
+                            if(i + 4  < logos.length) {
+                                $('.right-control').css('display', 'inline-block');
+                            }
+                            return;
+                        }
+                    }
+
+            });
+            $('.right-control').click(function () {
+                for (var i = 0; i < logos.length; i++) {
+                    if ($(logos[i]).hasClass('first')) {
+                        $(logos[i]).removeClass('first');
+                        $(logos[i + 1]).removeClass('visible');
+                        $(logos[i + 1]).addClass('first');
+                        $(logos[i + 4]).removeClass('last');
+                        $(logos[i + 4]).addClass('visible');
+                        $(logos[i + 5]).addClass('last');
+                        if($(logos[logos.length - 1]).hasClass('last')){
+                            $('.right-control').css('display', 'none');
+                        }
+                        if(i < logos.length - 5) {
+                            $('.left-control').css('display', 'inline-block');
+                        }
+                        return;
+                    }
+                }
+
+            });
+            /*****************/
             $('.callback').click(function () {
                 $('.window-callback').fadeIn();
             });
             $('.window-callback').click(function (event) {
                 $target = $(event.target);
-                if (!$target.closest($('.form-callback')).length) $('.window-callback').fadeOut();
+                if (!$target.closest($('.window')).length) $('.window-callback').fadeOut();
+            });
+            /*****************/
+            $('.form-callback .submit').click(function () {
+                $('.window-callback').fadeOut();
+                $('.window-callback-ok').fadeIn();
+            });
+            $('.window-callback-ok').click(function (event) {
+                $target = $(event.target);
+                if (!$target.closest($('.window')).length) $('.window-callback-ok').fadeOut();
+                if ($target.hasClass('exit')) $('.window-callback-ok').fadeOut();
+            });
+            /*****************/
+            $('.free-consult-bid').click(function () {
+                $('.window-free-consult-ok').fadeIn();
+            });
+            $('.window-free-consult-ok').click(function (event) {
+                $target = $(event.target);
+                if (!$target.closest($('.window')).length) $('.window-free-consult-ok').fadeOut();
+                if ($target.hasClass('exit')) $('.window-free-consult-ok').fadeOut();
+            });
+            /*****************/
+            $('.bid').click(function () {
+                $('.window-bid-ok').fadeIn();
+            });
+            $('.window-bid-ok').click(function (event) {
+                $target = $(event.target);
+                if (!$target.closest($('.window')).length) $('.window-bid-ok').fadeOut();
+                if ($target.hasClass('exit')) $('.window-bid-ok').fadeOut();
             });
         });
     </script>
@@ -105,15 +175,25 @@
     <div class="spares-for-cars">
         <div class="content">
             <div class="slider">
-                <div class="left-control">&#8249;</div>
+                <div class="left-control active">&#8249;</div>
                 <ul>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element first"><div class="logo"></div></li>
                     <li class="element visible"><div class="logo"></div></li>
                     <li class="element visible"><div class="logo"></div></li>
                     <li class="element visible"><div class="logo"></div></li>
-                    <li class="element visible"><div class="logo"></div></li>
-                    <li class="element visible"><div class="logo"></div></li>
+                    <li class="element last"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
+                    <li class="element"><div class="logo"></div></li>
                 </ul>
-                <div class="right-control">&#8250;</div>
+                <div class="right-control active">&#8250;</div>
             </div>
         </div>
         <div class="order-block">
@@ -125,7 +205,7 @@
                 <form action="#" onsubmit="return false">
                     <input type="text" placeholder="Ваше имя:"/>
                     <input type="text" placeholder="Ваш телефон:"/>
-                    <input type="submit" value="оставить заявку"/>
+                    <input class="bid" type="submit" value="оставить заявку"/>
                 </form>
             </div>
         </div>
@@ -194,50 +274,38 @@
         <div class="content">
             <div class="left-column">
                 <div class="review review-1" style="display: none">
-                    <div class="name">Виктор Семёнов</div>
+                    <div class="name">Владислав</div>
                     <div class="line"></div>
                     <div class="review-text"><span class="quote-1"></span><span class="quote-2"></span>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                        Nulla consequat massa quis enim.</div>
+                        Хорошая компания, всегда заказаваю запчасти тут. Качество и цены радуют. Удобное расположение и время работы. Всем своим друзьям советую.</div>
                     <div class="photo"></div>
                 </div>
                 <div class="review review-2">
-                    <div class="name">Семен Викторов</div>
+                    <div class="name">Кристина</div>
                     <div class="line"></div>
                     <div class="review-text"><span class="quote-1"></span><span class="quote-2"></span>
-                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                        Nulla consequat massa quis enim.</div>
+                        Магазин, который меня ни когда не подводил. Цены ниже чем у соседей на большинство позиций. Качество запчастей высокое и еще предоставляют гарантии.</div>
                     <div class="photo"></div>
                 </div>
                 <div class="review review-3" style="display: none">
-                    <div class="name">Гривадий Горпожакс</div>
+                    <div class="name">Евгений</div>
                     <div class="line"></div>
                     <div class="review-text"><span class="quote-1"></span><span class="quote-2"></span>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                        ligula eget dolor.</div>
+                        Вполне хороший магазин, бываю в нем не часто, так как находится далеко от дома и гаража. Но слышу только хорошее. Покупал там генератор, помогли подобрать, так как я в них не понимаю ничего. Купил и остался доволен. Ребята работают классные. Посоветуют, помогут. Цены в среднем такие же как и у других магазинов в Тольятти.</div>
                     <div class="photo"></div>
                 </div>
                 <div class="review review-4" style="display: none">
-                    <div class="name">Вильгельм Егоза</div>
+                    <div class="name">Дмитрий</div>
                     <div class="line"></div>
                     <div class="review-text"><span class="quote-1"></span><span class="quote-2"></span>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                        Nulla consequat massa quis enim. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                        Nulla consequat massa quis enim.</div>
+                        Очень радует отношение к клиенту, то есть обратная связь по каждому этапу заказа. Всё остальное тоже четко отработано, заказал, оплатил, отправили, получил, минимум времени!</div>
                     <div class="photo"></div>
                 </div>
                 <div class="review review-5" style="display: none">
-                    <div class="name">Майкл Джексон</div>
+                    <div class="name">Игорь</div>
                     <div class="line"></div>
                     <div class="review-text"><span class="quote-1"></span><span class="quote-2"></span>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus.</div>
+                        Отличный магазин, заказываю у них недавно, но уже увидел много преимуществ перед другими, приходит все в срок, адекватные цены, все очень удобно. Буду заказывать только здесь и всем рекомендую!!!</div>
                     <div class="photo"></div>
                 </div>
                 <ul class="review-controls">
@@ -351,13 +419,33 @@
     </div>
 
     <div class="window-callback">
-        <form class="form-callback" action="#">
+        <form class="window form-callback" action="#">
             <div class="text-1">заказать обратный звонок</div>
             <div class="text-2">введите свои контактные данные и наш менеджер свяжется сегодня с вами</div>
             <input type="text" placeholder="Ваше имя:"/>
             <input type="text" placeholder="Ваш телефон:"/>
-            <input type="submit" value="заказать"/>
+            <input class="submit" type="submit" value="заказать"/>
         </form>
+    </div>
+
+    <div class="window-callback-ok">
+        <div class="window callback-ok">
+            <div class="text-1">ваш обратный звонок заказан!</div>
+            <button class="exit">готово!</button>
+        </div>
+    </div>
+
+    <div class="window-free-consult-ok">
+        <div class="window free-consult-ok">
+            <div class="text-1">заявка на<br> бесплатную консультацию<br> со специалистом<br> отправлена!</div>
+            <button class="exit">готово!</button>
+        </div>
+    </div>
+    <div class="window-bid-ok">
+        <div class="window bid-ok">
+            <div class="text-1">заявка принята!</div>
+            <button class="exit">готово!</button>
+        </div>
     </div>
 
 </main>

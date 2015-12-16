@@ -104,7 +104,7 @@ header, .title {
     font-size: 26px;
     margin: 5px 0;
 }
-.contacts button {
+.contacts button, .window .exit {
     width: 220px;
     height: 40px;
     -webkit-border-radius: 5px;
@@ -118,7 +118,7 @@ header, .title {
     font-weight: bold;
     cursor: pointer;
 }
-.contacts button:hover {
+.contacts button:hover, .window .exit:hover {
     background: linear-gradient(to top, #fff100, #f7941d);
 }
 .contacts button:active {
@@ -468,15 +468,26 @@ footer a {
 .slider {
     width: 100%;
     height: 150px;
-
+    position: relative;
 }
 .slider .left-control, .slider .right-control {
     display: inline-block;
     font-size: 250px;
     color: white;
     font-family: "MyriadPro Condensed", sans-serif;
-    line-height: 100px;
+    line-height: 140px;
     cursor: pointer;
+    position: absolute;
+    left: -50px;
+    overflow: hidden;
+    margin-top: -15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.slider .right-control {
+    left: auto;
+    right: 70px;
 }
 .slider .left-control:hover, .slider .right-control:hover {
     text-shadow: 0 1px 5px black;
@@ -486,7 +497,7 @@ footer a {
     text-align: center;
 }
 .slider .element {
-    display: inline-block;
+    display: none;
     width: 150px;
     height: 150px;
     margin: 0 10px;
@@ -496,8 +507,6 @@ footer a {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
-.slider .element:nth-child(1) {margin-left: 0}
-.slider .element:nth-child(5) {margin-right: 0}
 .slider .logo {
     width: 120px;
     height: 120px;
@@ -510,6 +519,22 @@ footer a {
 .slider .element:nth-child(3) .logo {background: url("../images/sprite-5.png") no-repeat 43.5% 0; background-size: cover}
 .slider .element:nth-child(4) .logo {background: url("../images/sprite-5.png") no-repeat 71% 0; background-size: cover}
 .slider .element:nth-child(5) .logo {width: 140px;left: 5px;background: url("../images/sprite-5.png") no-repeat 99% 0; background-size: cover}
+.slider .element:nth-child(6) .logo {background: url("../images/sprite-5.png") no-repeat 0.4% 0; background-size: cover}
+.slider .element:nth-child(7) .logo {width: 140px;left: 5px;background: url("../images/sprite-5.png") no-repeat 19% 0; background-size: cover}
+.slider .element:nth-child(8) .logo {background: url("../images/sprite-5.png") no-repeat 43.5% 0; background-size: cover}
+.slider .element:nth-child(9) .logo {background: url("../images/sprite-5.png") no-repeat 71% 0; background-size: cover}
+.slider .element:nth-child(10) .logo {width: 140px;left: 5px;background: url("../images/sprite-5.png") no-repeat 99% 0; background-size: cover}
+.slider .element:nth-child(11) .logo {background: url("../images/sprite-5.png") no-repeat 0.4% 0; background-size: cover}
+.slider .element:nth-child(12) .logo {width: 140px;left: 5px;background: url("../images/sprite-5.png") no-repeat 19% 0; background-size: cover}
+.slider .element:nth-child(13) .logo {background: url("../images/sprite-5.png") no-repeat 43.5% 0; background-size: cover}
+.slider .element:nth-child(14) .logo {background: url("../images/sprite-5.png") no-repeat 71% 0; background-size: cover}
+.slider .element:nth-child(15) .logo {width: 140px;left: 5px;background: url("../images/sprite-5.png") no-repeat 99% 0; background-size: cover}
+.visible {
+    display: inline-block!important;
+}
+.first, .last {
+    display: inline-block!important;
+}
 .order-block {
     width: 100%;
     height: 205px;
@@ -700,13 +725,13 @@ footer a {
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
-    background: url("../images/sprite-2.jpg") 100% 0;
+    background: url("../images/review-4.jpg");
     background-size: cover;
 }
-.review-2 .photo {background: url("../images/background-13.jpg");background-size: cover;}
-.review-3 .photo {background: url("../images/background-1.png");background-size: cover;}
-.review-4 .photo {background: url("../images/background-4.jpg");background-size: cover;}
-.review-5 .photo {background: url("../images/background-12.jpg");background-size: cover;}
+.review-2 .photo {background: url("../images/review-1.jpg") no-repeat -50px 0;background-size: cover;}
+.review-3 .photo {background: url("../images/review-2.jpg");background-size: cover;}
+.review-4 .photo {background: url("../images/review-3.jpg");background-size: cover;}
+.review-5 .photo {background: url("../images/review-5.jpg");background-size: cover;}
 .reviews .right-column {
     width: 320px;
     float: right;
@@ -1278,7 +1303,7 @@ footer a {
     background-size: cover;
 }
 /**********************/
-.window-callback {
+.window-callback, .window-callback-ok, .window-free-consult-ok, .window-bid-ok {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -1289,7 +1314,7 @@ footer a {
     text-align: left;
     z-index: 10;
 }
-.form-callback {
+.form-callback, .callback-ok, .free-consult-ok, .bid-ok {
     position: absolute;
     width: 470px;
     height: 400px;
@@ -1298,24 +1323,48 @@ footer a {
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(255,255,255,0.9);
+    background: linear-gradient(to bottom, #096ec8, #084f8f);
     text-align: center;
     padding: 0 30px;
+    outline: 10px solid white;
     z-index: 10;
 }
-.form-callback .text-1 {
+.window .text-1 {
     font-family: "MyriadPro Bold Condensed", sans-serif;
     font-size: 36px;
     text-transform: uppercase;
     margin-top: 30px;
+    color: white;
 }
 .form-callback .text-2 {
     font-family: "MyriadPro Bold Condensed", sans-serif;
     font-size: 24px;
     text-transform: lowercase;
     margin: 10px 0;
-    color: #615c5c;
+    color: white;
 }
-.form-callback input {
+.window input {
+    margin: 15px auto 5px;
+}
+.window .submit {
+    margin: 20px 0;
+}
+/**********************/
+.callback-ok {
+    height: 200px;
+}
+.bid-ok {
+    height: 150px;
+}
+
+.window .exit {
+    margin: 10px 0;
+}
+/**********************/
+.free-consult-ok {
+    height: 300px;
+}
+
+.window .exit {
     margin: 10px 0;
 }
